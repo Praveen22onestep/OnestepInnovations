@@ -82,8 +82,8 @@ export default function Footer() {
                                     href="mailto:Praveensudhakar@onestepinnovations.com.au"
                                     className="flex items-center gap-3 text-gray-400 text-sm hover:text-white transition-colors"
                                 >
-                                    <Mail className="w-4 h-4 text-neon-cyan" />
-                                    Praveensudhakar@onestepinnovations.com.au
+                                    <Mail className="w-4 h-4 text-neon-cyan flex-shrink-0" />
+                                    <span>Praveensudhakar@onestepinnovations.com.au</span>
                                 </a>
                             </li>
                             <li>
