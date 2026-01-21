@@ -28,7 +28,7 @@ const textSections = [
     {
         threshold: 0,
         text: "Business is complex.",
-        subtext: "Where technology elevates human impact."
+        subtext: "But running it shouldn't be."
     },
     {
         threshold: 0.2,
