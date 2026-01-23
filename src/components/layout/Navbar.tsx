@@ -139,8 +139,8 @@ export default function Navbar() {
                         transition={{ type: "tween", duration: 0.3 }}
                         className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-gray-950 md:hidden z-[60] shadow-2xl"
                     >
-                        <div className="flex flex-col h-full">
-                            <div className="flex items-center justify-between p-6 border-b border-gray-800">
+                        <div className="p-6">
+                            <div className="flex items-center justify-between mb-8">
                                 <span className="text-lg font-display font-semibold text-deep-amber">Menu</span>
                                 <button
                                     onClick={() => setIsMobileMenuOpen(false)}
@@ -149,70 +149,48 @@ export default function Navbar() {
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
-                            <nav className="flex-1 overflow-y-auto py-4">
-                                {navLinks.map((link, index) => (
-                                    <motion.div
-                                        key={link.name}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.05 }}
-                                        className="px-6"
-                                    >
+                            <nav className="space-y-2">
+                                {navLinks.map((link) => (
+                                    <div key={link.name}>
                                         {link.hasDropdown ? (
                                             <div>
                                                 <button
                                                     onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                                                    className="flex items-center justify-between w-full py-4 text-lg font-semibold text-white hover:text-deep-amber transition-colors"
+                                                    className="flex items-center justify-between w-full py-3 text-lg font-semibold text-white hover:text-deep-amber transition-colors"
                                                 >
                                                     {link.name}
                                                     <ChevronDown
                                                         className={`w-5 h-5 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
                                                     />
                                                 </button>
-                                                <AnimatePresence>
-                                                    {isMobileServicesOpen && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: "auto", opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.2 }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="pb-4 space-y-1">
-                                                                {services.map((service, sIndex) => (
-                                                                    <motion.div
-                                                                        key={service.name}
-                                                                        initial={{ opacity: 0, x: -10 }}
-                                                                        animate={{ opacity: 1, x: 0 }}
-                                                                        transition={{ delay: sIndex * 0.03 }}
-                                                                    >
-                                                                        <Link
-                                                                            href={service.href}
-                                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                                            className="block py-2 pl-4 text-sm text-gray-400 hover:text-neon-cyan transition-colors border-l-2 border-gray-700 hover:border-neon-cyan"
-                                                                        >
-                                                                            {service.name}
-                                                                        </Link>
-                                                                    </motion.div>
-                                                                ))}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
+                                                {isMobileServicesOpen && (
+                                                    <div className="pl-4 space-y-1 mb-2">
+                                                        {services.map((service) => (
+                                                            <Link
+                                                                key={service.name}
+                                                                href={service.href}
+                                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                                className="block py-2 text-sm text-gray-400 hover:text-neon-cyan transition-colors border-l-2 border-gray-700 pl-3 hover:border-neon-cyan"
+                                                            >
+                                                                {service.name}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </div>
                                         ) : (
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMobileMenuOpen(false)}
-                                                className="block py-4 text-lg font-semibold text-white hover:text-deep-amber transition-colors"
+                                                className="block py-3 text-lg font-semibold text-white hover:text-deep-amber transition-colors"
                                             >
                                                 {link.name}
                                             </Link>
                                         )}
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </nav>
-                            <div className="p-6 border-t border-gray-800">
+                            <div className="mt-8">
                                 <Link
                                     href="/contact"
                                     onClick={() => setIsMobileMenuOpen(false)}
