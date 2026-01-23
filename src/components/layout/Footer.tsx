@@ -123,18 +123,18 @@ export default function Footer() {
                         © {currentYear} One Step Innovations Pty Ltd. All rights reserved.
                     </p>
                     <div className="flex gap-6">
-                        <Link
-                            href="/privacy"
+                        <a
+                            href="/privacy.html"
                             className="text-gray-500 text-sm hover:text-white transition-colors"
                         >
                             Privacy Policy
-                        </Link>
-                        <Link
-                            href="/terms"
+                        </a>
+                        <a
+                            href="/terms.html"
                             className="text-gray-500 text-sm hover:text-white transition-colors"
                         >
                             Terms of Service
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
