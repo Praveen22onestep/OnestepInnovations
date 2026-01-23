@@ -257,21 +257,21 @@ export default function ScrollExperience() {
                 >
                     <motion.div
                         style={{ scale: logoScale, opacity: logoOpacity }}
-                        className="mb-8"
+                        className="mb-6"
                     >
                         <Image
                             src="/logo.png"
                             alt="One Step Innovations"
-                            width={200}
-                            height={200}
+                            width={160}
+                            height={160}
                             priority
                         />
                     </motion.div>
 
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3 px-4 max-w-4xl">
                         {textSections[3].text}
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-400 mb-8 px-4">
+                    <p className="text-base sm:text-lg text-gray-400 mb-6 px-4 max-w-2xl">
                         {textSections[3].subtext}
                     </p>
 
@@ -279,10 +279,10 @@ export default function ScrollExperience() {
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-deep-amber text-black font-semibold rounded-full text-base sm:text-lg hover:bg-white transition-colors duration-200"
+                        className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-deep-amber text-black font-semibold rounded-full text-sm sm:text-base hover:bg-white transition-colors duration-200"
                     >
                         Book Your Consultation
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </motion.div>
             </div>
