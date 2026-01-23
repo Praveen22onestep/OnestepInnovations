@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollExperience from "@/components/home/ScrollExperience";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import CaseStudies from "@/components/home/CaseStudies";
+import CTASection from "@/components/home/CTASection";
 import AIAssistant from "@/components/home/AIAssistant";
 
 export default function Home() {
@@ -13,11 +14,14 @@ export default function Home() {
       {/* Hero Scrollytelling Section */}
       <ScrollExperience />
 
-      {/* Services Grid */}
+      {/* What We Do - Services Grid */}
       <ServicesGrid />
 
-      {/* Case Studies */}
+      {/* Real Results - Case Studies */}
       <CaseStudies />
+
+      {/* Book Consultation CTA */}
+      <CTASection />
 
       {/* Footer */}
       <Footer />
