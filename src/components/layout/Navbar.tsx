@@ -26,6 +26,7 @@ const navLinks = [
 export default function Navbar() {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 glass">
@@ -137,53 +138,79 @@ export default function Navbar() {
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 top-20 bg-black/95 backdrop-blur-lg md:hidden z-40"
                     >
-                        <motion.nav className="flex flex-col items-center justify-center h-full gap-8">
+                        <motion.nav className="flex flex-col items-start justify-start h-full pt-8 px-6 overflow-y-auto">
                             {navLinks.map((link, index) => (
                                 <motion.div
                                     key={link.name}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
+                                    className="w-full"
                                 >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-3xl font-display font-semibold text-gray-300 hover:text-deep-amber transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
+                                    {link.hasDropdown ? (
+                                        <div className="w-full">
+                                            <button
+                                                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                                                className="flex items-center justify-between w-full py-4 text-2xl font-display font-semibold text-gray-300 hover:text-deep-amber transition-colors border-b border-gray-800"
+                                            >
+                                                {link.name}
+                                                <ChevronDown
+                                                    className={`w-6 h-6 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                                                />
+                                            </button>
+                                            <AnimatePresence>
+                                                {isMobileServicesOpen && (
+                                                    <motion.div
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: "auto", opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        transition={{ duration: 0.2 }}
+                                                        className="overflow-hidden"
+                                                    >
+                                                        <div className="py-2 pl-4 space-y-1">
+                                                            {services.map((service, sIndex) => (
+                                                                <motion.div
+                                                                    key={service.name}
+                                                                    initial={{ opacity: 0, x: -10 }}
+                                                                    animate={{ opacity: 1, x: 0 }}
+                                                                    transition={{ delay: sIndex * 0.05 }}
+                                                                >
+                                                                    <Link
+                                                                        href={service.href}
+                                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                                        className="block py-3 text-base text-gray-400 hover:text-neon-cyan transition-colors border-l-2 border-gray-700 pl-4 hover:border-neon-cyan"
+                                                                    >
+                                                                        {service.name}
+                                                                    </Link>
+                                                                </motion.div>
+                                                            ))}
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            href={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="block py-4 text-2xl font-display font-semibold text-gray-300 hover:text-deep-amber transition-colors border-b border-gray-800 w-full"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
                                 </motion.div>
                             ))}
-
-                            {/* Mobile Services Sub-items */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                                className="flex flex-wrap justify-center gap-3 mt-4 px-8"
-                            >
-                                {services.map((service) => (
-                                    <Link
-                                        key={service.name}
-                                        href={service.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-sm text-gray-500 hover:text-neon-cyan transition-colors"
-                                    >
-                                        {service.name}
-                                    </Link>
-                                ))}
-                            </motion.div>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
-                                className="mt-8"
+                                className="mt-8 w-full"
                             >
                                 <Link
                                     href="/contact"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="inline-flex items-center px-8 py-3 bg-deep-amber text-black font-semibold rounded-full hover:bg-white transition-colors"
+                                    className="inline-flex items-center justify-center w-full px-8 py-3 bg-deep-amber text-black font-semibold rounded-full hover:bg-white transition-colors"
                                 >
                                     Get Started
                                 </Link>
