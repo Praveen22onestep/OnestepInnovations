@@ -119,7 +119,7 @@ export default function ScrollExperience() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4"
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2"
                     >
                         {textSections[0].text}
                     </motion.h2>
@@ -127,7 +127,7 @@ export default function ScrollExperience() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1 }}
-                        className="text-xl text-gray-400"
+                        className="text-lg sm:text-xl text-gray-400 px-4"
                     >
                         {textSections[0].subtext}
                     </motion.p>
@@ -202,10 +202,10 @@ export default function ScrollExperience() {
                     style={{ opacity: opacity2 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
                         {textSections[1].text}
                     </h2>
-                    <p className="text-xl text-gray-400">
+                    <p className="text-lg sm:text-xl text-gray-400 px-4">
                         {textSections[1].subtext}
                     </p>
                 </motion.div>
@@ -215,7 +215,7 @@ export default function ScrollExperience() {
                     style={{ opacity: opacity3 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl px-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-4xl px-2 sm:px-4">
                         {services.map((service, index) => (
                             <motion.div
                                 key={service.name}
@@ -231,13 +231,13 @@ export default function ScrollExperience() {
                                         [50, 0]
                                     ),
                                 }}
-                                className="flex flex-col items-center p-4 rounded-xl bg-card-bg/50 border border-card-border"
+                                className="flex flex-col items-center p-3 sm:p-4 rounded-xl bg-card-bg/50 border border-card-border"
                             >
                                 <service.icon
-                                    className="w-10 h-10 mb-2"
+                                    className="w-8 h-8 sm:w-10 sm:h-10 mb-2"
                                     style={{ color: service.color }}
                                 />
-                                <span className="text-xs md:text-sm text-center text-gray-300 font-medium">
+                                <span className="text-[10px] sm:text-xs md:text-sm text-center text-gray-300 font-medium leading-tight">
                                     {service.name}
                                 </span>
                             </motion.div>
@@ -250,10 +250,10 @@ export default function ScrollExperience() {
                     style={{ opacity: opacity3 }}
                     className="absolute top-20 md:top-32 inset-x-0 text-center px-4 z-10"
                 >
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 px-2">
                         {textSections[2].text}
                     </h2>
-                    <p className="text-lg text-gray-400">
+                    <p className="text-base sm:text-lg text-gray-400 px-4">
                         {textSections[2].subtext}
                     </p>
                 </motion.div>
@@ -276,10 +276,10 @@ export default function ScrollExperience() {
                         />
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
                         {textSections[3].text}
                     </h2>
-                    <p className="text-xl text-gray-400 mb-8">
+                    <p className="text-lg sm:text-xl text-gray-400 mb-8 px-4">
                         {textSections[3].subtext}
                     </p>
 
@@ -287,7 +287,7 @@ export default function ScrollExperience() {
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-8 py-4 bg-deep-amber text-black font-semibold rounded-full text-lg hover:bg-white transition-all duration-300 hover:scale-105 glow-amber"
+                        className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-deep-amber text-black font-semibold rounded-full text-base sm:text-lg hover:bg-white transition-all duration-300 hover:scale-105 glow-amber"
                     >
                         Book Your Consultation
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

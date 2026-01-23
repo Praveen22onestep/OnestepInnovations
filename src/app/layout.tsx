@@ -16,6 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://onestepinnovations.com.au"),
   title: "One Step Innovations | AI Automation for Manufacturing Excellence",
   description: "Transform business chaos into streamlined efficiency through AI and Technology. One Step Innovations Pty Ltd delivers AI Process Automation, AIOT Implementation, Business Process Improvement, and Strategic Management solutions across Australia.",
   keywords: [
@@ -107,6 +108,38 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="bg-void text-foreground antialiased font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "One Step Innovations Pty Ltd",
+              "url": "https://onestepinnovations.com.au",
+              "logo": "https://onestepinnovations.com.au/logo.png",
+              "description": "Transform business chaos into streamlined efficiency through AI and Technology. AI Process Automation, AIOT Implementation, and Business Process Improvement.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "AU"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+61-476-289-975",
+                "contactType": "sales",
+                "email": "praveensudhakar@onestepinnovations.com.au"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/onestep-innovations/"
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Praveen Kumar Sudhakar"
+              },
+              "areaServed": "AU",
+              "serviceType": ["AI Process Automation", "Business Process Improvement", "AIOT Implementation", "Strategic Management", "Change Management", "Training and Development"]
+            })
+          }}
+        />
         {children}
       </body>
     </html>

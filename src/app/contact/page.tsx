@@ -14,10 +14,32 @@ export default function ContactPage() {
         message: "",
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // In production, this would send to an API
-        setIsSubmitted(true);
+        setIsSubmitting(true);
+        setSubmitError(false);
+        
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to send');
+            }
+            
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error('Failed to send enquiry:', error);
+            setSubmitError(true);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -92,16 +114,42 @@ export default function ContactPage() {
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 Book a Consultation
                             </h3>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-gray-400 text-sm mb-4">
                                 Schedule a free 30-minute discovery call to discuss your business
                                 challenges and how we can help.
                             </p>
+                            <a
+                                href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-deep-amber text-black text-sm font-semibold rounded-full hover:bg-white transition-colors"
+                            >
+                                Book Now
+                            </a>
                         </div>
                     </div>
 
                     {/* Contact Form */}
                     <div className="p-8 rounded-2xl bg-card-bg border border-card-border">
-                        {isSubmitted ? (
+                        {submitError ? (
+                            <div className="flex flex-col items-center justify-center h-full text-center py-12">
+                                <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-6">
+                                    <Mail className="w-8 h-8 text-red-500" />
+                                </div>
+                                <h3 className="text-2xl font-display font-bold text-white mb-4">
+                                    Something went wrong
+                                </h3>
+                                <p className="text-gray-400 mb-6">
+                                    Please try again or email us directly at Praveensudhakar@onestepinnovations.com.au
+                                </p>
+                                <button
+                                    onClick={() => setSubmitError(false)}
+                                    className="px-6 py-3 bg-deep-amber text-black font-semibold rounded-xl hover:bg-white transition-colors"
+                                >
+                                    Try Again
+                                </button>
+                            </div>
+                        ) : isSubmitted ? (
                             <div className="flex flex-col items-center justify-center h-full text-center py-12">
                                 <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
                                     <CheckCircle className="w-8 h-8 text-green-500" />
@@ -180,9 +228,10 @@ export default function ContactPage() {
 
                                     <button
                                         type="submit"
-                                        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-deep-amber text-black font-semibold rounded-xl hover:bg-white transition-all duration-300"
+                                        disabled={isSubmitting}
+                                        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-deep-amber text-black font-semibold rounded-xl hover:bg-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        Send Message
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                         <Send className="w-5 h-5" />
                                     </button>
                                 </form>
