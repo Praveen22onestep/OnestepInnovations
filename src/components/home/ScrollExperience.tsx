@@ -109,7 +109,7 @@ export default function ScrollExperience() {
                     style={mounted ? { opacity: opacity2 } : { opacity: 0 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    <div className="absolute inset-0 bg-gradient-radial from-red-900/10 via-void to-void" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-void via-gray-950 to-void" />
                     
                     {/* Chaotic floating red dots */}
                     {mounted && (
