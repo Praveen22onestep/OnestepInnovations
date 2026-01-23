@@ -26,9 +26,8 @@ export default function ScrollExperience() {
     const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.5], [1, 1, 0]);
     const opacity2 = useTransform(scrollYProgress, [0.45, 0.55, 1], [0, 1, 1]);
 
-    // Pulsing light animation - starts small and expands
-    const pulseScale = useTransform(scrollYProgress, [0, 0.25, 0.5], [1, 1.5, 3]);
-    const pulseOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [0.3, 0.8, 0]);
+    // Pulse opacity fades out as you scroll
+    const pulseOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [1, 0.8, 0]);
 
     // Chaos animations for red dots
     const chaosRotate = useTransform(scrollYProgress, [0.5, 1], [0, 360]);
@@ -63,16 +62,18 @@ export default function ScrollExperience() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
-                    {/* Expanding yellow dot */}
+                    {/* Breathing yellow glow */}
                     <motion.div
-                        style={{ scale: pulseScale, opacity: pulseOpacity }}
-                        className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.8, 0.4] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        style={{ opacity: pulseOpacity }}
+                        className="w-40 h-40 rounded-full bg-deep-amber blur-2xl z-10"
                     />
                     {/* Center dot that pulses */}
                     <motion.div
-                        animate={{ opacity: [0.2, 0.6, 0.2] }}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.7, 0.3] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute w-4 h-4 rounded-full bg-deep-amber z-10"
+                        className="absolute w-5 h-5 rounded-full bg-deep-amber z-10"
                     />
                 </motion.div>
 
