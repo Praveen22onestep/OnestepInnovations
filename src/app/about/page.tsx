@@ -5,7 +5,7 @@ import { Target, Eye, Heart, Lightbulb, Users, Shield, Linkedin } from "lucide-r
 
 export const metadata = {
     title: "About Us | One Step Innovations",
-    description: "Learn about One Step Innovations, our mission to empower businesses through AI and technology, and meet our founder Praveen Kumar Sudhakar.",
+    description: "One Step Innovations: AI-powered manufacturing process improvement experts. Lean Six Sigma certified, IoT specialists, serving Australian enterprises. Proven digital transformation results.",
 };
 
 const coreValues = [

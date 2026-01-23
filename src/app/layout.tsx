@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://onestepinnovations.com.au"),
   title: "One Step Innovations | AI Automation for Manufacturing Excellence",
-  description: "Transform business chaos into streamlined efficiency through AI and Technology. One Step Innovations Pty Ltd delivers AI Process Automation, AIOT Implementation, Business Process Improvement, and Strategic Management solutions across Australia.",
+  description: "AI-powered manufacturing process improvement for Australian businesses. Reduce downtime, optimize workflows with intelligent automation. Expert implementation included.",
   keywords: [
     "AI automation",
     "business process improvement",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "One Step Innovations | AI Automation for Manufacturing Excellence",
-    description: "Transform business chaos into streamlined efficiency through AI and Technology. Your Growth Engine for business transformation.",
+    description: "AI-powered manufacturing process improvement for Australian businesses. Reduce downtime, optimize workflows with intelligent automation.",
     url: "https://onestepinnovations.com.au",
     siteName: "One Step Innovations",
     locale: "en_AU",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "One Step Innovations | AI Automation for Manufacturing Excellence",
-    description: "Transform business chaos into streamlined efficiency through AI and Technology.",
+    description: "AI-powered manufacturing process improvement for Australian businesses. Intelligent automation experts.",
     images: ["/logo.png"],
   },
   verification: {
