@@ -2,7 +2,6 @@
 
 import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 const textSections = [
@@ -14,10 +13,6 @@ const textSections = [
         text: "Inefficiency costs you growth.",
         subtext: "Manual tasks eat your time. Silos kill your momentum.",
     },
-    {
-        text: "Where technology meets human impact.",
-        subtext: "Your transformation starts with one step.",
-    },
 ];
 
 export default function ScrollExperience() {
@@ -27,18 +22,17 @@ export default function ScrollExperience() {
         offset: ["start start", "end end"],
     });
 
-    // Transform values for section visibility (3 sections now)
-    const opacity1 = useTransform(scrollYProgress, [0, 0.25, 0.33], [1, 1, 0]);
-    const opacity2 = useTransform(scrollYProgress, [0.28, 0.38, 0.6, 0.68], [0, 1, 1, 0]);
-    const opacity3 = useTransform(scrollYProgress, [0.63, 0.73, 1], [0, 1, 1]);
+    // Transform values for section visibility (2 sections now)
+    const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.5], [1, 1, 0]);
+    const opacity2 = useTransform(scrollYProgress, [0.45, 0.55, 1], [0, 1, 1]);
 
     // Pulsing light animation - starts small and expands
-    const pulseScale = useTransform(scrollYProgress, [0, 0.15, 0.3], [1, 1.5, 3]);
-    const pulseOpacity = useTransform(scrollYProgress, [0, 0.2, 0.33], [0.3, 0.8, 0]);
+    const pulseScale = useTransform(scrollYProgress, [0, 0.25, 0.5], [1, 1.5, 3]);
+    const pulseOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [0.3, 0.8, 0]);
 
     // Chaos animations for red dots
-    const chaosRotate = useTransform(scrollYProgress, [0.3, 0.65], [0, 360]);
-    const chaosScale = useTransform(scrollYProgress, [0.3, 0.45, 0.65], [0, 1, 0]);
+    const chaosRotate = useTransform(scrollYProgress, [0.5, 1], [0, 360]);
+    const chaosScale = useTransform(scrollYProgress, [0.5, 0.7, 1], [0, 1, 0.8]);
 
     // Pre-computed particle positions to avoid hydration mismatch
     const particlePositions = useMemo(() => [
@@ -52,12 +46,8 @@ export default function ScrollExperience() {
         { left: 70, top: 50, duration: 4.0, xMove: [40, -50], yMove: [-40, 30] },
     ], []);
 
-    // Logo formation
-    const logoScale = useTransform(scrollYProgress, [0.65, 0.85], [0.8, 1]);
-    const logoOpacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
-
     return (
-        <div ref={containerRef} className="relative h-[300vh]">
+        <div ref={containerRef} className="relative h-[200vh]">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 {/* Background */}
                 <div className="absolute inset-0 bg-void" />
@@ -169,32 +159,6 @@ export default function ScrollExperience() {
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 px-4">
                         {textSections[1].subtext}
-                    </p>
-                </motion.div>
-
-                {/* Section 3: The Future - Logo */}
-                <motion.div
-                    style={{ opacity: opacity3 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20"
-                >
-                    <motion.div
-                        style={{ scale: logoScale, opacity: logoOpacity }}
-                        className="mb-6"
-                    >
-                        <Image
-                            src="/logo.png"
-                            alt="One Step Innovations"
-                            width={160}
-                            height={160}
-                            priority
-                        />
-                    </motion.div>
-
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3 px-4 max-w-4xl">
-                        {textSections[2].text}
-                    </h2>
-                    <p className="text-base sm:text-lg text-gray-400 px-4 max-w-2xl">
-                        {textSections[2].subtext}
                     </p>
                 </motion.div>
             </div>
