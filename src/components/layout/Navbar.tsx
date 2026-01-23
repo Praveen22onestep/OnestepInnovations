@@ -137,7 +137,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ type: "tween", duration: 0.3 }}
-                        className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-gray-950 md:hidden z-[60] shadow-2xl"
+                        className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-black border-l border-gray-700 md:hidden z-[60] shadow-2xl"
                     >
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-8">
