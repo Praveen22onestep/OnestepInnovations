@@ -31,7 +31,7 @@ This lead was captured by the One Step Innovations AI Efficiency Analyst chatbot
         `.trim();
 
         const { data, error } = await resend.emails.send({
-            from: "One Step Innovations <onboarding@resend.dev>",
+            from: "One Step Innovations Pty Ltd <noreply@onestepinnovations.com.au>",
             to: ["praveensudhakar@onestepinnovations.com.au"],
             replyTo: email,
             subject: emailSubject,

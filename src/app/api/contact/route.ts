@@ -30,7 +30,7 @@ This enquiry was submitted through the One Step Innovations website contact form
         `.trim();
 
         const { data, error } = await resend.emails.send({
-            from: "One Step Innovations <onboarding@resend.dev>",
+            from: "One Step Innovations Pty Ltd <noreply@onestepinnovations.com.au>",
             to: ["praveensudhakar@onestepinnovations.com.au"],
             replyTo: email,
             subject: emailSubject,
