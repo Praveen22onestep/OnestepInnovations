@@ -68,7 +68,7 @@ export default function ScrollExperience() {
                         alt=""
                         fill
                         priority
-                        className="object-cover opacity-30"
+                        className="object-cover opacity-40"
                         sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
