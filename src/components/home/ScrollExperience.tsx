@@ -261,7 +261,7 @@ export default function ScrollExperience() {
                 {/* Section 4: The Future - Logo Formation */}
                 <motion.div
                     style={{ opacity: opacity4 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20"
                 >
                     <motion.div
                         style={{ scale: logoScale, opacity: logoOpacity }}
