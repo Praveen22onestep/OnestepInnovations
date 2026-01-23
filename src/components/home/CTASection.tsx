@@ -13,11 +13,11 @@ export default function CTASection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
-                        Ready to Transform Your Business?
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
+                        Up for a quick 1hr trade?
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Book a free consultation and discover how we can help streamline your operations and drive growth.
+                    <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                        We discuss your bottlenecks, and I share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?
                     </p>
                     <a
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
