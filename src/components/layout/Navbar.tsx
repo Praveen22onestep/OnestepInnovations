@@ -34,11 +34,11 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 group">
                         <Image
-                            src="/logo.png"
+                            src="/logo-new.png"
                             alt="One Step Innovations"
                             width={50}
                             height={50}
-                            className="transition-transform duration-300 group-hover:scale-105"
+                            className="transition-transform duration-300 group-hover:scale-105 rounded-full"
                         />
                         <div className="hidden sm:block">
                             <span className="text-lg font-display font-semibold text-deep-amber tracking-tight">
