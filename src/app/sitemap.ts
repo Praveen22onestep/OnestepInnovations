@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.SITE_URL || 'https://onestep.com'
+  const baseUrl = 'https://onestepinnovations.com.au'
 
   return [
     {
