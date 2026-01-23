@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -17,11 +17,16 @@ const textSections = [
 ];
 
 export default function ScrollExperience() {
+    const [mounted, setMounted] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
     });
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Transform values for section visibility (2 sections now)
     const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.5], [1, 1, 0]);
@@ -55,7 +60,7 @@ export default function ScrollExperience() {
 
                 {/* Section 1: The Hook */}
                 <motion.div
-                    style={{ opacity: opacity1 }}
+                    style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
                     <Image
@@ -69,10 +74,12 @@ export default function ScrollExperience() {
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
                     {/* Expanding yellow dot on scroll */}
-                    <motion.div
-                        style={{ scale: pulseScale, opacity: pulseOpacity }}
-                        className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
-                    />
+                    {mounted && (
+                        <motion.div
+                            style={{ scale: pulseScale, opacity: pulseOpacity }}
+                            className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
+                        />
+                    )}
                     {/* Center dot */}
                     <motion.div
                         className="absolute w-4 h-4 rounded-full bg-deep-amber z-10"
@@ -81,7 +88,7 @@ export default function ScrollExperience() {
 
                 {/* Section 1 Text */}
                 <motion.div
-                    style={{ opacity: opacity1 }}
+                    style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
@@ -99,37 +106,39 @@ export default function ScrollExperience() {
 
                 {/* Section 2: The Problem - Chaos */}
                 <motion.div
-                    style={{ opacity: opacity2 }}
+                    style={mounted ? { opacity: opacity2 } : { opacity: 0 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
                     <div className="absolute inset-0 bg-gradient-radial from-red-900/10 via-void to-void" />
                     
                     {/* Chaotic floating red dots */}
-                    <motion.div
-                        style={{ rotate: chaosRotate, scale: chaosScale }}
-                        className="relative w-96 h-96"
-                    >
-                        {particlePositions.map((particle, i) => (
-                            <motion.div
-                                key={i}
-                                animate={{
-                                    x: [0, particle.xMove[0], particle.xMove[1], 0],
-                                    y: [0, particle.yMove[0], particle.yMove[1], 0],
-                                    scale: [1, 1.5, 0.5, 1],
-                                }}
-                                transition={{
-                                    duration: particle.duration,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                className="absolute w-3 h-3 rounded-full bg-red-500"
-                                style={{
-                                    left: `${particle.left}%`,
-                                    top: `${particle.top}%`,
-                                }}
-                            />
-                        ))}
-                    </motion.div>
+                    {mounted && (
+                        <motion.div
+                            style={{ rotate: chaosRotate, scale: chaosScale }}
+                            className="relative w-96 h-96"
+                        >
+                            {particlePositions.map((particle, i) => (
+                                <motion.div
+                                    key={i}
+                                    animate={{
+                                        x: [0, particle.xMove[0], particle.xMove[1], 0],
+                                        y: [0, particle.yMove[0], particle.yMove[1], 0],
+                                        scale: [1, 1.5, 0.5, 1],
+                                    }}
+                                    transition={{
+                                        duration: particle.duration,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                    }}
+                                    className="absolute w-3 h-3 rounded-full bg-red-500"
+                                    style={{
+                                        left: `${particle.left}%`,
+                                        top: `${particle.top}%`,
+                                    }}
+                                />
+                            ))}
+                        </motion.div>
+                    )}
 
                     {/* Stats overlay */}
                     <div className="absolute top-1/4 left-10 md:left-20">
@@ -154,7 +163,7 @@ export default function ScrollExperience() {
 
                 {/* Section 2 Text */}
                 <motion.div
-                    style={{ opacity: opacity2 }}
+                    style={mounted ? { opacity: opacity2 } : { opacity: 0 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">

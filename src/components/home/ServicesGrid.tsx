@@ -73,7 +73,7 @@ const itemVariants = {
 
 export default function ServicesGrid() {
     return (
-        <section id="services" className="relative py-24 px-4 bg-void">
+        <section id="services" className="relative py-24 px-4 bg-gradient-to-b from-void via-gray-950 to-void">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <motion.div
