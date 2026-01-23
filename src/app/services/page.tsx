@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export const metadata = {
     title: "Services | One Step Innovations",
-    description: "Explore our six pillars of business transformation: Business Process Improvement, AI Process Automation, AIOT Implementation, Strategic Management, Change Management, and Training & Development.",
+    description: "Expert AI Process Automation, IoT Solutions, and Strategic Management services for SME and enterprise manufacturers across Australia. Proven results.",
 };
 
 const services = [

@@ -91,7 +91,10 @@ export default function ScrollExperience() {
                     style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
+                        One Step Innovations | AI Automation & IoT Solutions for Manufacturing
+                    </h1>
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 px-2">
                         {textSections[0].text}
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 px-4">
