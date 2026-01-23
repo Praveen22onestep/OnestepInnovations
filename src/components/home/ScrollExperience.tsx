@@ -44,7 +44,7 @@ const textSections = [
     },
     {
         threshold: 0.8,
-        text: "Strategic. Automated. Connected.",
+        text: "Where technology meets human impact.",
         subtext: "Your transformation starts with one step.",
         showCTA: true
     },

@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
         const { name, email, industry, challenges } = await request.json();
 
         // Construct email content
-        const emailSubject = "Assistant Enquiry";
+        const emailSubject = "Chatbot Enquiry";
         const emailBody = `
 New Lead from AI Assistant
 
