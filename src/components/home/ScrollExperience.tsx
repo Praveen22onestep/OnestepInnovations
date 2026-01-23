@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import {
     Cog,
     Brain,
@@ -34,19 +33,16 @@ const textSections = [
         threshold: 0.2,
         text: "Inefficiency costs you growth.",
         subtext: "Manual tasks eat your time. Silos kill your momentum.",
-        showStats: true
     },
     {
         threshold: 0.4,
         text: "We bring order through Innovation.",
         subtext: "Six pillars of transformation. One seamless journey.",
-        showPillars: true
     },
     {
         threshold: 0.8,
         text: "Where technology meets human impact.",
         subtext: "Your transformation starts with one step.",
-        showCTA: true
     },
 ];
 
@@ -57,143 +53,81 @@ export default function ScrollExperience() {
         offset: ["start start", "end end"],
     });
 
-    // Transform values for animations
+    // Transform values for section visibility
     const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.2], [1, 1, 0]);
     const opacity2 = useTransform(scrollYProgress, [0.18, 0.22, 0.35, 0.4], [0, 1, 1, 0]);
     const opacity3 = useTransform(scrollYProgress, [0.38, 0.42, 0.75, 0.8], [0, 1, 1, 0]);
     const opacity4 = useTransform(scrollYProgress, [0.78, 0.82, 1], [0, 1, 1]);
 
-    // Light/particle animations
-    const pulseScale = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1.5, 3]);
-    const pulseOpacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [0.3, 0.8, 0]);
+    // Simplified animations
+    const pulseOpacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [0.5, 0.8, 0]);
 
-    // Chaos animations
-    const chaosRotate = useTransform(scrollYProgress, [0.2, 0.4], [0, 360]);
-    const chaosScale = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [0, 1, 0]);
-
-    // Pillars animations
-    const pillarProgress = useTransform(scrollYProgress, [0.4, 0.8], [0, 1]);
+    // Pillars stagger - pre-computed transforms
+    const pillarOpacities = useMemo(() => {
+        return services.map((_, index) => ({
+            inputRange: [0.4 + index * 0.05, 0.45 + index * 0.05],
+            outputRange: [0, 1] as [number, number]
+        }));
+    }, []);
 
     // Logo formation
-    const logoScale = useTransform(scrollYProgress, [0.8, 0.95], [0.5, 1]);
+    const logoScale = useTransform(scrollYProgress, [0.8, 0.95], [0.8, 1]);
     const logoOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
 
     return (
-        <div ref={containerRef} className="relative h-[500vh]">
-            {/* Sticky Canvas Container */}
+        <div ref={containerRef} className="relative h-[400vh]">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-                {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-radial from-gray-900/20 via-void to-void" />
+                {/* Background */}
+                <div className="absolute inset-0 bg-void" />
 
-                {/* Section 1: The Hook - Pulsing Light */}
+                {/* Section 1: The Hook */}
                 <motion.div
                     style={{ opacity: opacity1 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    {/* Hero Background Image */}
                     <div
                         className="absolute inset-0 bg-cover bg-center opacity-30"
                         style={{ backgroundImage: "url('/hero-bg.png')" }}
                     />
-                    {/* Dark overlay for text visibility */}
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
                     <motion.div
-                        style={{ scale: pulseScale, opacity: pulseOpacity }}
-                        className="w-32 h-32 rounded-full bg-deep-amber blur-3xl z-10"
-                    />
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0.2, 0.5, 0.2] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute w-4 h-4 rounded-full bg-deep-amber z-10"
+                        style={{ opacity: pulseOpacity }}
+                        className="w-24 h-24 rounded-full bg-deep-amber/50"
                     />
                 </motion.div>
 
                 {/* Section 1 Text */}
                 <motion.div
                     style={{ opacity: opacity1 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+                    className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2"
-                    >
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
                         {textSections[0].text}
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                        className="text-lg sm:text-xl text-gray-400 px-4"
-                    >
+                    </h2>
+                    <p className="text-lg sm:text-xl text-gray-400 px-4">
                         {textSections[0].subtext}
-                    </motion.p>
+                    </p>
 
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, y: [0, 10, 0] }}
-                        transition={{ delay: 1.5, y: { duration: 1.5, repeat: Infinity } }}
-                        className="absolute bottom-8 left-8 flex flex-col items-center gap-2"
-                    >
+                    <div className="absolute bottom-8 left-8 flex flex-col items-center gap-2 animate-bounce">
                         <span className="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
                         <ChevronDown className="w-5 h-5 text-deep-amber" />
-                    </motion.div>
+                    </div>
                 </motion.div>
 
-                {/* Section 2: The Chaos */}
+                {/* Section 2: The Problem */}
                 <motion.div
                     style={{ opacity: opacity2 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    {/* Chaotic particles animation */}
-                    <motion.div
-                        style={{ rotate: chaosRotate, scale: chaosScale }}
-                        className="relative w-96 h-96"
-                    >
-                        {[...Array(12)].map((_, i) => (
-                            <motion.div
-                                key={i}
-                                animate={{
-                                    x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
-                                    y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
-                                    scale: [1, 1.5, 0.5, 1],
-                                }}
-                                transition={{
-                                    duration: 3 + Math.random() * 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                className="absolute w-3 h-3 rounded-full bg-chaos-red"
-                                style={{
-                                    left: `${50 + (Math.random() - 0.5) * 80}%`,
-                                    top: `${50 + (Math.random() - 0.5) * 80}%`,
-                                }}
-                            />
-                        ))}
-                    </motion.div>
-
-                    {/* Stats overlay */}
-                    <div className="absolute top-1/4 left-10 md:left-20">
-                        <motion.div
-                            animate={{ opacity: [0.3, 0.8, 0.3] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="text-chaos-red font-mono text-sm"
-                        >
-                            -20% ROI
-                        </motion.div>
+                    <div className="absolute inset-0 bg-gradient-radial from-red-900/10 via-void to-void" />
+                    
+                    {/* Simple static indicators */}
+                    <div className="absolute top-1/4 left-10 md:left-20 text-red-500/60 font-mono text-sm animate-pulse">
+                        -20% ROI
                     </div>
-                    <div className="absolute bottom-1/4 right-10 md:right-20">
-                        <motion.div
-                            animate={{ opacity: [0.3, 0.8, 0.3] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                            className="text-chaos-red font-mono text-sm"
-                        >
-                            Time Lost
-                        </motion.div>
+                    <div className="absolute bottom-1/4 right-10 md:right-20 text-red-500/60 font-mono text-sm animate-pulse delay-500">
+                        Time Lost
                     </div>
                 </motion.div>
 
@@ -221,14 +155,9 @@ export default function ScrollExperience() {
                                 key={service.name}
                                 style={{
                                     opacity: useTransform(
-                                        pillarProgress,
-                                        [index * 0.15, index * 0.15 + 0.1],
-                                        [0, 1]
-                                    ),
-                                    y: useTransform(
-                                        pillarProgress,
-                                        [index * 0.15, index * 0.15 + 0.1],
-                                        [50, 0]
+                                        scrollYProgress,
+                                        pillarOpacities[index].inputRange,
+                                        pillarOpacities[index].outputRange
                                     ),
                                 }}
                                 className="flex flex-col items-center p-3 sm:p-4 rounded-xl bg-card-bg/50 border border-card-border"
@@ -258,7 +187,7 @@ export default function ScrollExperience() {
                     </p>
                 </motion.div>
 
-                {/* Section 4: The Future - Logo Formation */}
+                {/* Section 4: The Future - Logo & CTA */}
                 <motion.div
                     style={{ opacity: opacity4 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20"
@@ -272,7 +201,7 @@ export default function ScrollExperience() {
                             alt="One Step Innovations"
                             width={200}
                             height={200}
-                            className="glow-amber"
+                            priority
                         />
                     </motion.div>
 
@@ -287,7 +216,7 @@ export default function ScrollExperience() {
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-deep-amber text-black font-semibold rounded-full text-base sm:text-lg hover:bg-white transition-all duration-300 hover:scale-105 glow-amber"
+                        className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-deep-amber text-black font-semibold rounded-full text-base sm:text-lg hover:bg-white transition-colors duration-200"
                     >
                         Book Your Consultation
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
