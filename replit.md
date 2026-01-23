@@ -34,12 +34,11 @@ npm run dev
 - `/api/contact` - Handles contact form submissions (logs to console, subject: "Enquiry")
 
 ## Email Integration
-The API routes currently log submissions to the console. For production email delivery to praveensudhakar@onestepinnovations.com.au, integrate an email service:
-- Option 1: Resend (recommended)
-- Option 2: SendGrid
-- Option 3: AWS SES
+Email delivery is configured using Resend. Both API routes send emails to praveensudhakar@onestepinnovations.com.au:
+- `/api/contact` - Sends contact form submissions with subject "Enquiry"
+- `/api/chat` - Sends chatbot leads with subject "Chatbot Enquiry"
 
-Add the service API key to environment variables and update the route handlers.
+The RESEND_API_KEY secret is stored in environment variables.
 
 ## SEO Features
 - Structured data (JSON-LD Organization schema)

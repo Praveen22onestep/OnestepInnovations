@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
     try {
@@ -10,14 +13,14 @@ New Website Enquiry
 
 ---
 
-**Contact Details:**
+Contact Details:
 - Name: ${name}
 - Email: ${email}
 - Company: ${company || "Not provided"}
 
 ---
 
-**Message:**
+Message:
 
 ${message}
 
@@ -26,16 +29,27 @@ ${message}
 This enquiry was submitted through the One Step Innovations website contact form.
         `.trim();
 
-        console.log("===== NEW ENQUIRY =====");
-        console.log("To: praveensudhakar@onestepinnovations.com.au");
-        console.log("Subject:", emailSubject);
-        console.log("Body:", emailBody);
-        console.log("========================");
+        const { data, error } = await resend.emails.send({
+            from: "One Step Innovations <onboarding@resend.dev>",
+            to: ["praveensudhakar@onestepinnovations.com.au"],
+            replyTo: email,
+            subject: emailSubject,
+            text: emailBody,
+        });
+
+        if (error) {
+            console.error("Resend error:", error);
+            return NextResponse.json(
+                { success: false, message: "Failed to send email" },
+                { status: 500 }
+            );
+        }
+
+        console.log("Email sent successfully:", data);
 
         return NextResponse.json({
             success: true,
-            message: "Enquiry received successfully",
-            mailtoLink: `mailto:praveensudhakar@onestepinnovations.com.au?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+            message: "Enquiry sent successfully",
         });
     } catch (error) {
         console.error("Error processing enquiry:", error);
