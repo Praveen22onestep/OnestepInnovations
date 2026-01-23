@@ -63,6 +63,22 @@ export default function ScrollExperience() {
     const pulseScale = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1.5, 3]);
     const pulseOpacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [0.3, 0.8, 0]);
 
+    // Chaos animations for red dots
+    const chaosRotate = useTransform(scrollYProgress, [0.2, 0.4], [0, 360]);
+    const chaosScale = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [0, 1, 0]);
+
+    // Pre-computed particle positions to avoid hydration mismatch
+    const particlePositions = useMemo(() => [
+        { left: 15, top: 20, duration: 3.5, xMove: [-80, 60], yMove: [-50, 70] },
+        { left: 75, top: 25, duration: 4.0, xMove: [70, -40], yMove: [-60, 50] },
+        { left: 30, top: 70, duration: 3.2, xMove: [-50, 80], yMove: [40, -60] },
+        { left: 65, top: 75, duration: 4.5, xMove: [60, -70], yMove: [50, -40] },
+        { left: 45, top: 40, duration: 3.8, xMove: [-40, 50], yMove: [-30, 60] },
+        { left: 55, top: 55, duration: 4.2, xMove: [50, -60], yMove: [60, -50] },
+        { left: 25, top: 45, duration: 3.6, xMove: [-60, 40], yMove: [30, -40] },
+        { left: 70, top: 50, duration: 4.0, xMove: [40, -50], yMove: [-40, 30] },
+    ], []);
+
     // Pillars stagger - pre-computed transforms
     const pillarOpacities = useMemo(() => {
         return services.map((_, index) => ({
@@ -123,19 +139,58 @@ export default function ScrollExperience() {
                     </div>
                 </motion.div>
 
-                {/* Section 2: The Problem */}
+                {/* Section 2: The Problem - Chaos */}
                 <motion.div
                     style={{ opacity: opacity2 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
                     <div className="absolute inset-0 bg-gradient-radial from-red-900/10 via-void to-void" />
                     
-                    {/* Simple static indicators */}
-                    <div className="absolute top-1/4 left-10 md:left-20 text-red-500/60 font-mono text-sm animate-pulse">
-                        -20% ROI
+                    {/* Chaotic floating red dots */}
+                    <motion.div
+                        style={{ rotate: chaosRotate, scale: chaosScale }}
+                        className="relative w-96 h-96"
+                    >
+                        {particlePositions.map((particle, i) => (
+                            <motion.div
+                                key={i}
+                                animate={{
+                                    x: [0, particle.xMove[0], particle.xMove[1], 0],
+                                    y: [0, particle.yMove[0], particle.yMove[1], 0],
+                                    scale: [1, 1.5, 0.5, 1],
+                                }}
+                                transition={{
+                                    duration: particle.duration,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                className="absolute w-3 h-3 rounded-full bg-red-500"
+                                style={{
+                                    left: `${particle.left}%`,
+                                    top: `${particle.top}%`,
+                                }}
+                            />
+                        ))}
+                    </motion.div>
+
+                    {/* Stats overlay */}
+                    <div className="absolute top-1/4 left-10 md:left-20">
+                        <motion.div
+                            animate={{ opacity: [0.3, 0.8, 0.3] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="text-red-500 font-mono text-sm"
+                        >
+                            -20% ROI
+                        </motion.div>
                     </div>
-                    <div className="absolute bottom-1/4 right-10 md:right-20 text-red-500/60 font-mono text-sm animate-pulse delay-500">
-                        Time Lost
+                    <div className="absolute bottom-1/4 right-10 md:right-20">
+                        <motion.div
+                            animate={{ opacity: [0.3, 0.8, 0.3] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                            className="text-red-500 font-mono text-sm"
+                        >
+                            Time Lost
+                        </motion.div>
                     </div>
                 </motion.div>
 
