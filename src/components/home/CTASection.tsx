@@ -13,8 +13,8 @@ export default function CTASection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
-                        Up for a quick 1hr trade?
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
+                        Give me 30 minutes.<br className="hidden sm:block" /> I&apos;ll give you back 4 hours a week.
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                         We discuss your bottlenecks, and I share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?

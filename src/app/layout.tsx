@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -140,6 +141,7 @@ export default function RootLayout({
             })
           }}
         />
+        <ScrollToTop />
         {children}
       </body>
     </html>
