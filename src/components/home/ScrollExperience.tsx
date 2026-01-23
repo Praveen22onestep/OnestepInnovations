@@ -3,6 +3,7 @@
 import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const textSections = [
     {
@@ -56,9 +57,13 @@ export default function ScrollExperience() {
                     style={{ opacity: opacity1 }}
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    <div
-                        className="absolute inset-0 bg-cover bg-center opacity-30"
-                        style={{ backgroundImage: "url('/hero-bg.png')" }}
+                    <Image
+                        src="/hero-bg.png"
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover opacity-30"
+                        sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
