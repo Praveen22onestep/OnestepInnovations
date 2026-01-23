@@ -59,8 +59,9 @@ export default function ScrollExperience() {
     const opacity3 = useTransform(scrollYProgress, [0.38, 0.42, 0.75, 0.8], [0, 1, 1, 0]);
     const opacity4 = useTransform(scrollYProgress, [0.78, 0.82, 1], [0, 1, 1]);
 
-    // Simplified animations
-    const pulseOpacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [0.5, 0.8, 0]);
+    // Pulsing light animation - starts small and expands
+    const pulseScale = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1.5, 3]);
+    const pulseOpacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [0.3, 0.8, 0]);
 
     // Pillars stagger - pre-computed transforms
     const pillarOpacities = useMemo(() => {
@@ -91,9 +92,16 @@ export default function ScrollExperience() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
+                    {/* Expanding yellow dot */}
                     <motion.div
-                        style={{ opacity: pulseOpacity }}
-                        className="w-24 h-24 rounded-full bg-deep-amber/50"
+                        style={{ scale: pulseScale, opacity: pulseOpacity }}
+                        className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
+                    />
+                    {/* Center dot that pulses */}
+                    <motion.div
+                        animate={{ opacity: [0.2, 0.6, 0.2] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute w-4 h-4 rounded-full bg-deep-amber z-10"
                     />
                 </motion.div>
 
