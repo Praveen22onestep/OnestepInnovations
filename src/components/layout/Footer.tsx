@@ -103,12 +103,16 @@ export default function Footer() {
                             </li>
                             <li className="pt-4">
                                 <button
+                                    type="button"
                                     onClick={() => {
-                                        if (typeof window !== 'undefined' && (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion) {
-                                            (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion(BOOKING_URL);
-                                        } else {
-                                            window.open(BOOKING_URL, '_blank');
+                                        if (typeof window !== 'undefined' && (window as { gtag?: (...args: unknown[]) => void }).gtag) {
+                                            (window as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
+                                                'send_to': 'AW-17639333154/-oiLCM7wg_EbEKK6i9tB',
+                                                'value': 1.0,
+                                                'currency': 'AUD'
+                                            });
                                         }
+                                        window.open(BOOKING_URL, '_blank');
                                     }}
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-deep-amber text-black text-sm font-semibold rounded-full hover:bg-white transition-colors"
                                 >
