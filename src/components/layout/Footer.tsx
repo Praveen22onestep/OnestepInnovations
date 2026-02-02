@@ -102,14 +102,18 @@ export default function Footer() {
                                 </span>
                             </li>
                             <li className="pt-4">
-                                <a
-                                    href={BOOKING_URL}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => {
+                                        if (typeof window !== 'undefined' && (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion) {
+                                            (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion(BOOKING_URL);
+                                        } else {
+                                            window.open(BOOKING_URL, '_blank');
+                                        }
+                                    }}
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-deep-amber text-black text-sm font-semibold rounded-full hover:bg-white transition-colors"
                                 >
                                     Book Consultation
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>

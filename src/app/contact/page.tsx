@@ -118,14 +118,19 @@ export default function ContactPage() {
                                 Schedule a free 30-minute discovery call to discuss your business
                                 challenges and how we can help.
                             </p>
-                            <a
-                                href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                onClick={() => {
+                                    const bookingUrl = "https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
+                                    if (typeof window !== 'undefined' && (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion) {
+                                        (window as unknown as { gtag_report_conversion: (url: string) => boolean }).gtag_report_conversion(bookingUrl);
+                                    } else {
+                                        window.open(bookingUrl, '_blank');
+                                    }
+                                }}
                                 className="inline-flex items-center gap-2 px-4 py-2 bg-deep-amber text-black text-sm font-semibold rounded-full hover:bg-white transition-colors"
                             >
                                 Book Now
-                            </a>
+                            </button>
                         </div>
                     </div>
 
