@@ -14,10 +14,10 @@ export default function CTASection() {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
-                        Give Us 30 minutes.<br className="hidden sm:block" /> I&apos;ll give you back 4 hours a week.
+                        Give Us 30 minutes.<br className="hidden sm:block" /> We&apos;ll give you back 4 hours a week.
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        We discuss your bottlenecks, and I share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?
+                        We discuss your bottlenecks, and we share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?
                     </p>
                     <a
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
