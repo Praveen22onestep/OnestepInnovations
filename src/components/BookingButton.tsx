@@ -29,13 +29,18 @@ export default function BookingButton({
                 'currency': 'AUD'
             });
         }
-        window.open(BOOKING_URL, '_blank');
     };
 
     return (
-        <button type="button" onClick={handleClick} className={className}>
+        <a 
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleClick} 
+            className={className}
+        >
             {text}
             {showArrow && <ArrowRight className="w-5 h-5" />}
-        </button>
+        </a>
     );
 }

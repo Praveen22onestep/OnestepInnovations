@@ -19,10 +19,11 @@ export default function CTASection() {
                     <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                         We discuss your bottlenecks, and I share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?
                     </p>
-                    <button
-                        type="button"
+                    <a
+                        href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => {
-                            const bookingUrl = "https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
                             if (typeof window !== 'undefined' && (window as { gtag?: (...args: unknown[]) => void }).gtag) {
                                 (window as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
                                     'send_to': 'AW-17639333154/-oiLCM7wg_EbEKK6i9tB',
@@ -30,13 +31,12 @@ export default function CTASection() {
                                     'currency': 'AUD'
                                 });
                             }
-                            window.open(bookingUrl, '_blank');
                         }}
                         className="group inline-flex items-center gap-2 px-8 py-4 bg-deep-amber text-black font-semibold rounded-full text-lg hover:bg-white transition-colors duration-200"
                     >
                         Book Your Consultation
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
                 </motion.div>
             </div>
         </section>

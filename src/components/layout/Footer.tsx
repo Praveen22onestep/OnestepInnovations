@@ -102,8 +102,10 @@ export default function Footer() {
                                 </span>
                             </li>
                             <li className="pt-4">
-                                <button
-                                    type="button"
+                                <a
+                                    href={BOOKING_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     onClick={() => {
                                         if (typeof window !== 'undefined' && (window as { gtag?: (...args: unknown[]) => void }).gtag) {
                                             (window as { gtag: (...args: unknown[]) => void }).gtag('event', 'conversion', {
@@ -112,12 +114,11 @@ export default function Footer() {
                                                 'currency': 'AUD'
                                             });
                                         }
-                                        window.open(BOOKING_URL, '_blank');
                                     }}
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-deep-amber text-black text-sm font-semibold rounded-full hover:bg-white transition-colors"
                                 >
                                     Book Consultation
-                                </button>
+                                </a>
                             </li>
                         </ul>
                     </div>
