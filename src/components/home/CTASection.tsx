@@ -5,20 +5,32 @@ import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
     return (
-        <section className="py-20 md:py-32 bg-gradient-to-b from-void to-gray-900/20">
-            <div className="max-w-4xl mx-auto px-4 text-center">
+        <section className="relative py-24 px-4 bg-gradient-to-b from-void via-gray-950 to-void">
+            <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
+                    <span className="text-deep-amber text-sm font-semibold tracking-widest uppercase mb-4 block">
+                        Ready to Start?
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                         30 Minutes In. 4 Hours Back.
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         You share your challenges and we&apos;ll share a Safe AI tip that saves 4 hours a week for you. No obligation. Open to it?
                     </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="flex justify-center"
+                >
                     <a
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
                         target="_blank"
