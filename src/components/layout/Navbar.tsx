@@ -42,7 +42,7 @@ export default function Navbar() {
                             className="transition-transform duration-300 group-hover:scale-105 rounded-full"
                         />
                         <div className="hidden sm:block">
-                            <span className="text-lg font-display font-semibold text-deep-amber tracking-tight">
+                            <span className="text-lg font-display font-semibold tracking-tight" style={{ color: '#c9a227' }}>
                                 One Step Innovations
                             </span>
                             <p className="text-xs text-gray-400 tracking-widest uppercase">
