@@ -101,6 +101,24 @@ export default function RootLayout({
             gtag('config', 'AW-17639333154');
           `}
         </Script>
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.open(url, '_blank');
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17639333154/-oiLCM7wg_EbEKK6i9tB',
+                'value': 1.0,
+                'currency': 'AUD',
+                'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
