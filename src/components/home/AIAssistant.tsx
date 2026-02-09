@@ -19,13 +19,23 @@ interface UserData {
 type ConversationStep = "greeting" | "get_name" | "get_email" | "get_industry" | "analyzing" | "complete";
 
 export default function AIAssistant() {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+    const [hasAutoOpened, setHasAutoOpened] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [step, setStep] = useState<ConversationStep>("greeting");
     const [userData, setUserData] = useState<UserData>({ name: "", email: "", industry: "" });
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (hasAutoOpened) return;
+        const isMobile = window.innerWidth < 640;
+        if (!isMobile) {
+            setIsOpen(true);
+        }
+        setHasAutoOpened(true);
+    }, [hasAutoOpened]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
