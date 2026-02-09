@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
     Cog,
     Brain,
@@ -103,41 +104,39 @@ export default function ServicesGrid() {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     {services.map((service, index) => (
-                        <motion.div
-                            key={service.name}
-                            variants={itemVariants}
-                            className={`group relative p-6 rounded-2xl bg-card-bg border border-card-border overflow-hidden transition-all duration-300 hover:border-${service.color}/50 gradient-border cursor-pointer`}
-                        >
-                            {/* Gradient overlay on hover */}
-                            <div
-                                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                            />
-
-                            {/* Content */}
-                            <div className="relative z-10">
+                        <Link key={service.name} href="/services">
+                            <motion.div
+                                variants={itemVariants}
+                                className={`group relative p-6 rounded-2xl bg-card-bg border border-card-border overflow-hidden transition-all duration-300 hover:border-${service.color}/50 gradient-border cursor-pointer h-full`}
+                            >
                                 <div
-                                    className={`w-14 h-14 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
-                                >
-                                    <service.icon
-                                        className={`w-7 h-7 text-${service.color}`}
-                                    />
+                                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                                />
+
+                                <div className="relative z-10">
+                                    <div
+                                        className={`w-14 h-14 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
+                                    >
+                                        <service.icon
+                                            className={`w-7 h-7 text-${service.color}`}
+                                        />
+                                    </div>
+
+                                    <h3 className="text-xl font-display font-semibold text-white mb-3 flex items-center gap-2">
+                                        {service.name}
+                                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                                    </h3>
+
+                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                        {service.description}
+                                    </p>
                                 </div>
 
-                                <h3 className="text-xl font-display font-semibold text-white mb-3 flex items-center gap-2">
-                                    {service.name}
-                                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                                </h3>
-
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    {service.description}
-                                </p>
-                            </div>
-
-                            {/* Decorative element */}
-                            <div
-                                className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-${service.color}/5 blur-2xl group-hover:bg-${service.color}/10 transition-all duration-500`}
-                            />
-                        </motion.div>
+                                <div
+                                    className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-${service.color}/5 blur-2xl group-hover:bg-${service.color}/10 transition-all duration-500`}
+                                />
+                            </motion.div>
+                        </Link>
                     ))}
                 </motion.div>
             </div>
