@@ -71,11 +71,11 @@ export default function ScrollExperience() {
                         alt=""
                         fill
                         priority
-                        className="object-cover opacity-40"
+                        className="object-cover opacity-35 saturate-0"
                         sizes="100vw"
                         quality={90}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/80 to-void/60" />
 
                     {/* Expanding yellow dot on scroll */}
                     {mounted && (
@@ -92,11 +92,10 @@ export default function ScrollExperience() {
                     style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-2 px-2">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2 uppercase tracking-wide">
                         {heroLine1}
                     </h2>
-                    <div className="w-3 h-3 rounded-full bg-deep-amber my-3" />
-                    <p className="text-base sm:text-lg md:text-xl text-gray-400 px-4">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-400 px-4 uppercase tracking-wider">
                         {heroLine2}
                     </p>
 

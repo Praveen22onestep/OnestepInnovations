@@ -5,7 +5,7 @@
   --foreground: #f5f5f5;
   --void: #050505;
   --neon-cyan: #00f0ff;
-  --deep-amber: #b8860b;
+  --deep-amber: #fff6a7;
   --chaos-red: #ff3b3b;
   --card-bg: #0a0a0a;
   --card-border: #1a1a1a;
@@ -53,7 +53,7 @@ body {
 }
 
 .glow-amber {
-  box-shadow: 0 0 20px rgba(255, 191, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 246, 167, 0.3);
 }
 
 .text-glow-cyan {
@@ -61,7 +61,7 @@ body {
 }
 
 .text-glow-amber {
-  text-shadow: 0 0 20px rgba(255, 191, 0, 0.5);
+  text-shadow: 0 0 20px rgba(255, 246, 167, 0.5);
 }
 
 /* Gradient borders */
