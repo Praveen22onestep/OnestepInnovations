@@ -71,7 +71,7 @@ export default function ScrollExperience() {
                         alt=""
                         fill
                         priority
-                        className="object-cover opacity-40"
+                        className="object-cover opacity-40 saturate-[0.6]"
                         sizes="100vw"
                         quality={90}
                     />
@@ -81,7 +81,7 @@ export default function ScrollExperience() {
                     {mounted && (
                         <motion.div
                             style={{ scale: pulseScale, opacity: pulseOpacity }}
-                            className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
+                            className="w-24 h-24 rounded-full bg-deep-amber blur-3xl z-10 opacity-50"
                         />
                     )}
                     {/* Center dot - hidden here, shown in text section */}
