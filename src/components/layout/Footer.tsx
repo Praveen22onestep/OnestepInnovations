@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Youtube } from "lucide-react";
 
 const BOOKING_URL = "https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
 
@@ -45,6 +45,15 @@ export default function Footer() {
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@OnestepInnovations2025"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-neon-cyan hover:bg-white/10 transition-all duration-300"
+                                aria-label="YouTube"
+                            >
+                                <Youtube className="w-5 h-5" />
                             </a>
                         </div>
                     </div>
