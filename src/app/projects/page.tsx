@@ -31,7 +31,7 @@ export default function ProjectsPage() {
             <section className="pt-32 pb-16 px-4 bg-gradient-to-b from-void via-gray-950 to-void">
                 <div className="max-w-4xl mx-auto text-center">
                     <span className="text-deep-amber text-sm font-semibold tracking-widest uppercase mb-4 block">
-                        What We Solve
+                        Projects
                     </span>
                     <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
                         Industry-specific{" "}

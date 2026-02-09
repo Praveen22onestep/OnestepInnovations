@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "What We Solve | One Step Innovations",
+    title: "Projects | One Step Innovations",
     description:
         "Industry-specific AI solutions for manufacturing, FMCG, and supply chain operations.",
 };
