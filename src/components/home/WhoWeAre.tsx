@@ -76,12 +76,12 @@ export default function WhoWeAre() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="text-center"
                 >
-                    <p className="text-neon-cyan text-lg mb-6">
+                    <p className="text-gray-400 text-lg mb-6">
                         Ready to find out where AI actually fits in your operation?
                     </p>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan rounded-full hover:bg-neon-cyan/20 hover:border-neon-cyan/50 transition-all font-semibold"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-deep-amber/10 border border-deep-amber/30 text-deep-amber rounded-full hover:bg-deep-amber/20 hover:border-deep-amber/50 transition-all font-semibold"
                     >
                         Book a Process Review
                         <ArrowRight className="w-5 h-5" />
