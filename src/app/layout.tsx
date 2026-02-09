@@ -88,7 +88,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        {/* Google Analytics */}
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero image */}
+        <link rel="preload" href="/hero-bg.png" as="image" />
+      </head>
+      <body className="bg-void text-foreground antialiased font-sans">
+        {/* Google Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17639333154"
           strategy="afterInteractive"
@@ -99,10 +109,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17639333154');
-          `}
-        </Script>
-        <Script id="google-ads-conversion" strategy="afterInteractive">
-          {`
+
             function gtag_report_conversion(url) {
               var callback = function () {
                 if (typeof(url) != 'undefined') {
@@ -119,16 +126,6 @@ export default function RootLayout({
             }
           `}
         </Script>
-        {/* DNS Prefetch */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        {/* Preconnect */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload hero image */}
-        <link rel="preload" href="/hero-bg.png" as="image" />
-      </head>
-      <body className="bg-void text-foreground antialiased font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
