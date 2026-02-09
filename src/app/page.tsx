@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollExperience from "@/components/home/ScrollExperience";
+import WhoWeAre from "@/components/home/WhoWeAre";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import CaseStudies from "@/components/home/CaseStudies";
 import FAQSection from "@/components/home/FAQSection";
@@ -40,6 +41,9 @@ export default function Home() {
 
       {/* Hero Scrollytelling Section */}
       <ScrollExperience />
+
+      {/* Who We Are */}
+      <WhoWeAre />
 
       {/* What We Do - Services Grid */}
       <ServicesGrid />
