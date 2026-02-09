@@ -17,7 +17,7 @@ export default function CTASection() {
                         Give Us 30 minutes.<br className="hidden sm:block" /> We&apos;ll give you back 4 hours a week.
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        We discuss your bottlenecks, and we share a Safe-AI tactic that cuts 4+ hours of manual work weekly. No obligation. Open to it?
+                        You share your challenges and we&apos;ll share a Safe AI tip that saves 4 hours a week for you. No obligation. Open to it?
                     </p>
                     <a
                         href="https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
