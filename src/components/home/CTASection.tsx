@@ -14,7 +14,7 @@ export default function CTASection() {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
-                        Give Us 30 minutes.<br className="hidden sm:block" /> We&apos;ll give you back 4 hours a week.
+                        30 Minutes In. 4 Hours Back.
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                         You share your challenges and we&apos;ll share a Safe AI tip that saves 4 hours a week for you. No obligation. Open to it?
