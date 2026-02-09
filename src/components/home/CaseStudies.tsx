@@ -24,7 +24,7 @@ export default function CaseStudies() {
                         Real Results. Real Impact.
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        See how we&apos;ve helped organizations transform challenges into competitive advantages.
+                        See how organizations are transforming challenges into competitive advantages.
                     </p>
                 </motion.div>
 
