@@ -64,12 +64,13 @@ export default function ScrollExperience() {
                     className="absolute inset-0 flex items-center justify-center"
                 >
                     <Image
-                        src="/hero-bg.png"
+                        src="/hero-bg-hq.png"
                         alt=""
                         fill
                         priority
                         className="object-cover opacity-40"
                         sizes="100vw"
+                        quality={90}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 

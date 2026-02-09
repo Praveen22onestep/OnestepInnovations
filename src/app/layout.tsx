@@ -95,7 +95,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload hero image */}
-        <link rel="preload" href="/hero-bg.png" as="image" />
+        <link rel="preload" href="/hero-bg-hq.png" as="image" />
       </head>
       <body className="bg-void text-foreground antialiased font-sans">
         {/* Google Tag (gtag.js) */}
