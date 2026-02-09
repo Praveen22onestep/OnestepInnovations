@@ -42,7 +42,7 @@ export default function CaseStudies() {
           className="text-center mt-12"
         >
           <Link
-            href="/what-we-solve"
+            href="/projects"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
           >
             Explore all solutions
