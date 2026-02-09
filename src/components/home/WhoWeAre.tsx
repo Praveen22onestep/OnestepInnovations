@@ -13,7 +13,7 @@ const steps = [
     {
         number: "02",
         title: "Build What Fits",
-        text: "We design and deploy AI that targets those specific gaps — voice agents, document extraction, vision systems, automation workflows — using open platforms you'll own and maintain.",
+        text: "We design and deploy AI that targets those specific gaps — voice agents, document extraction, vision systems, automation workflows — built to integrate with your existing tools and scale with your business.",
     },
     {
         number: "03",
