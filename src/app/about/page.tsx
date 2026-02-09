@@ -126,7 +126,7 @@ export default function AboutPage() {
                             Founder & CEO, One Step Innovations Pty Ltd
                         </p>
                         <a
-                            href="https://www.linkedin.com/in/praveen-kumar-sudhakar/"
+                            href="https://www.linkedin.com/in/praveens2212"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-neon-cyan hover:text-white transition-colors mb-8"
