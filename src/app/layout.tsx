@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -86,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
       <head>
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -97,7 +97,7 @@ export default function RootLayout({
         {/* Preload hero image */}
         <link rel="preload" href="/hero-bg-hq.png" as="image" />
       </head>
-      <body className="bg-void text-foreground antialiased font-sans">
+      <body className="bg-void text-foreground antialiased" style={{ fontFamily: 'var(--font-dm-sans), sans-serif' }}>
         {/* Google Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17639333154"

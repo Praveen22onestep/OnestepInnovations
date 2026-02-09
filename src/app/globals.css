@@ -20,8 +20,8 @@
   --color-chaos-red: var(--chaos-red);
   --color-card-bg: var(--card-bg);
   --color-card-border: var(--card-border);
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
 }
 
 * {

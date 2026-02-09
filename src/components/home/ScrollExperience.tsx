@@ -5,8 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
-const heroLine1 = "Innovation with purpose.";
-const heroLine2 = "Execution with precision.";
+const heroLine1 = "Innovation with purpose";
+const heroLine2 = "Execution with precision";
 
 const textSections = [
     {
