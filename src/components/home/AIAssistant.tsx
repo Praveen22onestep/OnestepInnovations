@@ -47,9 +47,12 @@ export default function AIAssistant() {
         }
     }, [isOpen]);
 
+    const msgCounter = useRef(0);
+
     const addAssistantMessage = (content: string) => {
+        msgCounter.current += 1;
         const newMessage: Message = {
-            id: Date.now().toString(),
+            id: `assistant-${msgCounter.current}-${Date.now()}`,
             role: "assistant",
             content,
         };
@@ -57,8 +60,9 @@ export default function AIAssistant() {
     };
 
     const addUserMessage = (content: string) => {
+        msgCounter.current += 1;
         const newMessage: Message = {
-            id: Date.now().toString(),
+            id: `user-${msgCounter.current}-${Date.now()}`,
             role: "user",
             content,
         };

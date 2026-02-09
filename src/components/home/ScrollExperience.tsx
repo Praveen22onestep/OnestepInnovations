@@ -42,8 +42,12 @@ export default function ScrollExperience() {
 
                     {mounted && (
                         <motion.div
-                            style={{ scale: pulseScale, opacity: pulseOpacity }}
-                            className="w-24 h-24 rounded-full bg-deep-amber blur-3xl z-10 opacity-50"
+                            style={{
+                                scale: pulseScale,
+                                opacity: pulseOpacity,
+                                background: "radial-gradient(circle, var(--deep-amber) 0%, transparent 70%)",
+                            }}
+                            className="w-64 h-64 rounded-full z-10"
                         />
                     )}
                 </div>
