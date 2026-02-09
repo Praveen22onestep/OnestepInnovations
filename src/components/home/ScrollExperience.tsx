@@ -35,9 +35,9 @@ export default function ScrollExperience() {
     const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.5], [1, 1, 0]);
     const opacity2 = useTransform(scrollYProgress, [0.45, 0.55, 1], [0, 1, 1]);
 
-    // Yellow dot grows as you scroll
+    // Light glow grows as you scroll
     const pulseScale = useTransform(scrollYProgress, [0, 0.25, 0.5], [0.3, 1.5, 3]);
-    const pulseOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [0.5, 0.9, 0]);
+    const pulseOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [0.3, 0.6, 0]);
 
     // Chaos animations for red dots
     const chaosRotate = useTransform(scrollYProgress, [0.5, 1], [0, 360]);
@@ -71,17 +71,17 @@ export default function ScrollExperience() {
                         alt=""
                         fill
                         priority
-                        className="object-cover opacity-40 saturate-[0.6]"
+                        className="object-cover opacity-40 saturate-[0.4]"
                         sizes="100vw"
                         quality={90}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
-                    {/* Expanding yellow dot on scroll */}
+                    {/* Expanding light glow on scroll */}
                     {mounted && (
                         <motion.div
                             style={{ scale: pulseScale, opacity: pulseOpacity }}
-                            className="w-24 h-24 rounded-full bg-deep-amber blur-3xl z-10 opacity-50"
+                            className="w-24 h-24 rounded-full bg-white/30 blur-3xl z-10"
                         />
                     )}
                     {/* Center dot - hidden here, shown in text section */}
