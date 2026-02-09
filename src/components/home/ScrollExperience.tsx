@@ -71,11 +71,11 @@ export default function ScrollExperience() {
                         alt=""
                         fill
                         priority
-                        className="object-cover opacity-35 saturate-0"
+                        className="object-cover opacity-40"
                         sizes="100vw"
                         quality={90}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/80 to-void/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
 
                     {/* Expanding yellow dot on scroll */}
                     {mounted && (
