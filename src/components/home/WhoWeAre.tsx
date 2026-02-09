@@ -37,7 +37,7 @@ export default function WhoWeAre() {
                         Who Are We
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
-                        Your Process Is the Problem. We Start There.
+                        Process First. Results Follow.
                     </h2>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
                         Every AI project we take on starts the same way — not with technology, but with your process.
