@@ -84,10 +84,7 @@ export default function ScrollExperience() {
                             className="w-32 h-32 rounded-full bg-deep-amber blur-2xl z-10"
                         />
                     )}
-                    {/* Center dot */}
-                    <motion.div
-                        className="absolute w-4 h-4 rounded-full bg-deep-amber z-10"
-                    />
+                    {/* Center dot - hidden here, shown in text section */}
                 </motion.div>
 
                 {/* Section 1 Text */}
@@ -95,9 +92,13 @@ export default function ScrollExperience() {
                     style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 px-2">
-                        {heroLine1} {heroLine2}
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-2 px-2">
+                        {heroLine1}
                     </h2>
+                    <div className="w-3 h-3 rounded-full bg-deep-amber my-3" />
+                    <p className="text-base sm:text-lg md:text-xl text-gray-400 px-4">
+                        {heroLine2}
+                    </p>
 
                     <div className="absolute bottom-8 left-8 flex flex-col items-center gap-2 animate-bounce">
                         <span className="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
