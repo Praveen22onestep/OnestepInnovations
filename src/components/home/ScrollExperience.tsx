@@ -95,27 +95,8 @@ export default function ScrollExperience() {
                     style={mounted ? { opacity: opacity1 } : { opacity: 1 }}
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 px-2">
-                        <span className="block overflow-hidden">
-                            <motion.span
-                                initial={{ x: "-100%", opacity: 0 }}
-                                animate={mounted ? { x: 0, opacity: 1 } : {}}
-                                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
-                                className="inline-block"
-                            >
-                                {heroLine1}
-                            </motion.span>
-                        </span>
-                        <span className="block overflow-hidden mt-2">
-                            <motion.span
-                                initial={{ x: "-100%", opacity: 0 }}
-                                animate={mounted ? { x: 0, opacity: 1 } : {}}
-                                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.9 }}
-                                className="inline-block"
-                            >
-                                {heroLine2}
-                            </motion.span>
-                        </span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4 px-2">
+                        {heroLine1} {heroLine2}
                     </h2>
 
                     <div className="absolute bottom-8 left-8 flex flex-col items-center gap-2 animate-bounce">
