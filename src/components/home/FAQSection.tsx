@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, ArrowRight } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const faqData = {
   approach: {
@@ -84,9 +84,6 @@ const faqData = {
 
 type Category = keyof typeof faqData;
 
-const BOOKING_URL =
-  "https://outlook.office.com/bookwithme/user/25bbafd7aa564389bcda37e8b5b8e918@onestepinnovations.com.au/meetingtype/2CuJnw-1HkiM_lr5zCs25Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
-
 export default function FAQSection() {
   const [activeCategory, setActiveCategory] = useState<Category>("approach");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -98,21 +95,6 @@ export default function FAQSection() {
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const handleBookingClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (
-      typeof window !== "undefined" &&
-      (window as { gtag_report_conversion?: (url: string) => boolean })
-        .gtag_report_conversion
-    ) {
-      (
-        window as { gtag_report_conversion: (url: string) => boolean }
-      ).gtag_report_conversion(BOOKING_URL);
-    } else {
-      window.open(BOOKING_URL, "_blank");
-    }
   };
 
   return (
@@ -224,30 +206,6 @@ export default function FAQSection() {
           </motion.div>
         </AnimatePresence>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-14 text-center p-8 rounded-2xl border border-white/5 bg-white/[0.02]"
-        >
-          <p className="text-xl font-display font-semibold text-white mb-2">
-            Still have questions?
-          </p>
-          <p className="text-gray-400 text-sm mb-6">
-            Book a free, no-obligation consultation and let&apos;s talk about
-            your business.
-          </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleBookingClick}
-            className="group inline-flex items-center gap-2 px-8 py-3.5 bg-deep-amber text-black font-semibold rounded-full text-sm hover:bg-white transition-colors duration-200"
-          >
-            Book a Free Consultation
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
