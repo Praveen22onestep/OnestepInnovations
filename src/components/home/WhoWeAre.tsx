@@ -40,7 +40,7 @@ export default function WhoWeAre() {
                         Process First. Results Follow.
                     </h2>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                        Big results don't require big budgets. We bring AI and automation to SMEs by fixing your
+                        Big results don't require big budgets. We bring AI and automation to companies by fixing your
                         workflow first—then building solutions that save hours every week, cut operating costs, and
                         unlock faster throughput and growth.
                     </p>
